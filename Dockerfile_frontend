@@ -1,0 +1,15 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY Requirments_Frontend.txt .
+
+RUN pip install --no-cache-dir -r Requirments_Frontend.txt
+
+COPY . .
+
+EXPOSE 8501
+
+CMD ["streamlit", "run", "Frontend.py", "--server.port=8501","--server.address=0.0.0.0"]
+
+
